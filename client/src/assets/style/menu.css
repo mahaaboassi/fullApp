@@ -1,0 +1,13 @@
+
+.language-menu{
+    background-color: var(--light_level_1_color);
+    border-radius: 8px;
+    padding: 10px;
+}
+.language-menu li{
+    cursor: pointer;
+    transition: 0.3s;
+}
+.language-menu li:hover{
+    color: var(--main_color);
+}

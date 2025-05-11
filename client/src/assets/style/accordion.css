@@ -1,0 +1,79 @@
+.container-accordion{
+    background-color: var(--light_level_1_color);
+    border-radius: 12px;
+    box-shadow: var(--shadow-box);
+}
+.accordion{
+
+}
+.content-accordion{
+    height: 0;
+    overflow: hidden; 
+    transition: 0.5s height;
+}
+.content-accordion p{
+    color: var(--dark_level_2_color);
+}
+
+.icon-accordion-less{
+    background-color: var(--light_level_3_color);
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    color: var(--light_level_1_color);
+}
+.icon-accordion-more{
+    background-color: var(--main_color);
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    color: var(--light_level_1_color);
+}
+.social-icons-accordion{
+    border-radius: 50%;
+    position: relative; /* Enables positioning for the pseudo-element */
+    transition: transform 0.2s ease;
+}
+
+.social-icons-accordion::before {
+    content: ''; /* Creates an empty pseudo-element */
+    position: absolute;
+    bottom: -5px; /* Adjust distance of the shadow from the icon */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%; /* Width of the shadow spot */
+    height: 6px; /* Height of the shadow spot */
+    background-color: rgba(0, 0, 0, 0.2); /* Shadow color */
+    border-radius: 50%; /* Makes the shadow circular/oval */
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.social-icons-accordion:hover {
+    transform: translateY(-1px); /* Move the icon slightly upward */
+}
+
+.social-icons-accordion:hover::before {
+    opacity: 1; /* Show the shadow */
+    transform: translateX(-50%) scale(1.1); /* Slightly enlarge the shadow */
+}
+
+
+@media (max-width : 600px) {
+    .icon-accordion-less,.icon-accordion-more{
+        width: 20px;
+        height: 20px;
+
+    }
+    .container-accordion h5{
+        font-size: var(--font-size-xs);
+    }
+    .container-accordion p{
+        font-size: var(--font-size-xxs);
+    }
+    .container-accordion .social-accordion svg{
+        width: 15px;
+        height: 15px;
+    }
+    
+}

@@ -1,0 +1,155 @@
+.form-list{
+    background-color: var(--light_level_1_color);
+    border-radius: 12px;
+    box-shadow: var(--shadow-box);
+}
+.list-circular{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: var(--light_level_2_color);
+    position: relative;
+}
+.list-circular.active{
+    background-color: var(--main_color);
+}
+.list-circular.active::before{
+    content: "";
+    position: absolute;
+    z-index: 1;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: var(--light_level_1_color);
+}
+.list-circular.done{
+    background-color: var(--main_color);
+}
+.list-circular.done::before{
+    content: "\2713";
+    position: absolute;
+    z-index: 1;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: var(--light_level_1_color);
+}
+.list-circular .number{
+    position: absolute;
+    bottom: 20px;
+    font-size: var(--font-size-xs);
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--dark_level_3_color);
+}
+.list-circular .list-text{
+    position: absolute;
+    top: 22px;
+    font-size: var(--font-size-xxs);
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--dark_level_3_color);
+    
+}
+.list-circular .number-bottom{
+    position: absolute;
+    top: 20px;
+    font-size: var(--font-size-xs);
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--dark_level_3_color);
+}
+.list-circular .list-text-top{
+    position: absolute;
+    bottom: 22px;
+    font-size: var(--font-size-xxs);
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--dark_level_3_color);
+    
+}
+.list-circular.active .list-text-top,.list-circular.active .number-bottom, .list-circular.active .list-text, .list-circular.active .number{
+    color: var(--dark_level_1_color);
+    font-weight: 500;
+}
+.list-circular.done .list-text-top,.list-circular.done .number-bottom, .list-circular.done .list-text, .list-circular.done .number{
+    color: var(--dark_level_1_color);
+    font-weight: 500;
+}
+.label-title{
+    color: var(--main_color);
+    font-size: var(--font-size-s);
+}
+.dropzone{
+    border: 2px dashed var(--main_color)
+}
+.list-confirm,.list-confirm-ar{
+    min-width: 500px;
+}
+.list-confirm h2,.list-confirm-ar h2{
+    font-size: var(--font-size-s);
+    color: var(--dark_level_1_color);
+    text-transform: capitalize;
+    font-weight: 500;
+}
+.list-confirm li,.list-confirm-ar li{
+    font-size: var(--font-size-xs);
+    padding-bottom: 2px;
+    color: var(--dark_level_3_color);
+    text-transform: capitalize;
+    display: flex;
+    position: relative;
+
+}
+.list-confirm li::before{
+    content: "";
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--dark_level_3_color);
+    border-radius: 50%;
+    left: -15px
+}
+.list-confirm-ar li::before{
+    content: "";
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--dark_level_3_color);
+    border-radius: 50%;
+    right: -15px
+}
+.list-confirm ul,.list-confirm-ar ul{
+    padding: 10px;
+}
+.ilist-conf-title{
+    min-width: 100px;
+    font-weight: 500;
+}
+.files-countiner{
+    font-size: var(--font-size-s);
+}
+.icon-delete{
+    color: var(--main_color);
+    cursor: pointer;
+}
+@media (max-width:500px) {
+    .list-confirm,.list-confirm-ar{
+        min-width: unset;
+    }
+    .form-list p{
+        font-size: var(--font-size-xxs);
+    }
+    .files-countiner{
+        font-size: var(--font-size-xs);
+    }
+    
+}
