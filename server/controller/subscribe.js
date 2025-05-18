@@ -1,7 +1,8 @@
+require('dotenv').config(); 
 const nodemailer = require("nodemailer");
-const { AdminEmail } = require("../data/host");
 const User = require("../models/User");
 const subscribe = require("../models/subscribe");
+const { isValidDomain } = require("../middleware/checkEmail");
 
 
 const sendEmail = async (data) => {
@@ -10,14 +11,14 @@ const sendEmail = async (data) => {
       const transporter = nodemailer.createTransport({
         service: "gmail", // Or your preferred email service
         auth: {
-          user: "eng.mahaab96@gmail.com", // Replace with your email
-          pass: "ucfl tvrd cgwc ltau", // Replace with your email password or app password
+          user: process.env.EMAIL, 
+          pass: process.env.APP_PASSWORD, 
         },
       });
   
       // User Email
       const userEmailOptions = {
-        from: "eng.mahaab96@gmail.com", // Replace with your email
+        from: process.env.Email, // Replace with your email
         to: data.email,
         subject: "Welcome to Foreshore",
         // text: `Dear ,\n\nThank you for listing your property with us. We are reviewing your details and will get back to you shortly.\n\nBest regards,\nYour Team`,
@@ -41,7 +42,7 @@ const sendEmail = async (data) => {
         </div>
         <div class="text-align:center">
             <div style="margin: auto;width: 120px;padding-bottom: 10px;">
-                <a href="https://foreshore.vercel.app/" >
+                <a href="https://foreshore.ae/" >
                     <button style="background-color: #27cbbe;cursor: pointer;color: white;border: none  !important;padding: 10px;border-radius: 12px;">Go To Foreshore</button>
                 </a>
             </div>
@@ -53,9 +54,9 @@ const sendEmail = async (data) => {
   
       // Admin Email
       const adminEmailOptions = {
-        from: "eng.mahaab96@gmail.com", // Replace with your email
-        to: AdminEmail, // Replace with admin's email
-        subject: "New subscriber From forshore Website",
+        from: process.env.Email, 
+        to: process.env.ADMIN_EMAIL, 
+        subject: "New subscriber From foreshore Website",
         html:  `<div style="margin:auto;width: 500px;color:black; border-radius:12px;background-color: white;border: 1px solid black;">
         <div style="background: black;border-top-left-radius:12px;border-top-right-radius:12px;padding:10px;">
             <div style="margin: auto;text-align: center;">
@@ -80,7 +81,7 @@ const sendEmail = async (data) => {
         </div>
         <div style="text-align:center;">
             <div style="margin: auto;width: 120px;padding-bottom: 10px;">
-                <a href="https://foreshore.vercel.app/" style="text-decoration:none;">
+                <a href="https://foreshore.ae/" style="text-decoration:none;">
                     <button style="background-color: #27cbbe;cursor: pointer;color: white;border: none;padding: 10px;border-radius: 12px;">Go To Foreshore</button>
                 </a>
             </div>
@@ -102,8 +103,6 @@ const SendSubscribe = async (req,res)=>{
 
     try {
 
-
-        // Email validation (simple regex for format)
          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
          if (!emailRegex.test(email)) {
              return res.status(400).json({
@@ -113,25 +112,43 @@ const SendSubscribe = async (req,res)=>{
                  status: 400
              });
          }
+        const emailExists = await isValidDomain(email);
+        if (!emailExists) {
+            return res.status(400).json({
+                error: 1,
+                data: [],
+                message: "The domain of this email address is not valid or doesn't exist.",
+                status: 400,
+            });
+        }
         const data = {email};
 
         const roleExist = await User.findOne({ email })
         if(roleExist) {
-        if(['admin', 'user'].includes(roleExist.role)){
-            data["role"] = roleExist.role
-        }else{
-            return res.status(400).json({
-                error: 1,
-                data: [],
-                message: "Please provide a valid Role.",
-                status: 400
-            });
-        }
+            if(['admin', 'user'].includes(roleExist.role)){
+                data["role"] = roleExist.role
+            }else{
+                return res.status(400).json({
+                    error: 1,
+                    data: [],
+                    message: "Please provide a valid Role.",
+                    status: 400
+                });
+            }
         
         }else{
-        data["role"] = "user"
+            data["role"] = "user"
         }
-
+        // Check if already subscribed
+        const alreadySubscribed = await subscribe.findOne({ email });
+        if (alreadySubscribed) {
+        return res.status(400).json({
+            error: 1,
+            data: [],
+            message: "This email is already subscribed.",
+            status: 400,
+        });
+        }
            const subscribeSave = new subscribe(data);
            await subscribeSave.save();
            // Send Emails

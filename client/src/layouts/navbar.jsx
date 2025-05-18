@@ -44,7 +44,7 @@ function Navbar() {
     return ( <div className="container-nav py-3 px-6  lg:py-5 lg:px-10 ">
             <div className={`flex justify-between  ${scrolled ? "scrolled-nav":"nav"}`}>
                 <div>
-                    <Link to='/'><img src={scrolled?logo_light:logo} alt="forshore"/></Link>
+                    <Link to='/'><img src={scrolled?logo_light:logo} alt="foreshore"/></Link>
                 </div>
                 <div className='flex items-center'>
                     <MenuNav/>

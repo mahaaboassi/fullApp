@@ -38,7 +38,10 @@ const fileFilter = (req, file, callback) => {
     if (extname && mimetype) {
         callback(null, true);
     } else {
-        callback(new Error('Error: Only image files are allowed!'), false);
+        console.log("2 file filter");
+        const err = new Error('Only image files (jpeg, jpg, png, gif, webp, avif) are allowed.');
+        err.code = 'INVALID_FILE_TYPE';
+        callback( err, false);
     }
 };
 
@@ -58,7 +61,6 @@ const uploadMulti = multer({
     }
 }).array("files", 50);
 
-// Return uploaded file info for local storage
 const handleLocalUpload = (req, res, next) => {
     if (!req.files || req.files.length === 0) {
         console.warn("No files provided for upload.");
@@ -79,7 +81,15 @@ const handleLocalUpload = (req, res, next) => {
         req.fileInfos = fileInfos;
         next();
     } catch (error) {
+        console.log("2 handleupload");
         console.error('Local Upload Error:', error);
+        if (error.code === 'INVALID_FILE_TYPE') {
+            return res.status(400).json({
+                    error: 1,
+                    message: error.message,
+                    status: 400
+                });
+            }
         res.status(500).json({
             error: 1,
             data: [],
@@ -87,6 +97,7 @@ const handleLocalUpload = (req, res, next) => {
             details: error.message,
             status: 500
         });
+  
     }
 };
 
@@ -103,16 +114,31 @@ const deleteLocalFile = (filePath) => {
 };
 // Error handler
 const handleFileUploadError = (err, req, res, next) => {
+    console.log("2 error");
+    
     if (err instanceof multer.MulterError) {
         const message = err.code === 'LIMIT_FILE_SIZE' ? "File is too large. Maximum size is 5MB." : "Multer error occurred during file upload.";
         return res.status(400).json({ error: 1, message });
     }
-
-    if (err) {
-        console.error(err);
-        return res.status(500).json({ error: 1, message: "Server error." });
+    if (err?.code === 'INVALID_FILE_TYPE') {
+        console.log("pp");
+        
+        return res.status(400).json({
+            error: 1,
+            message: err.message,
+            status: 400
+        });
     }
 
+    if (err) {
+
+        console.error('Unhandled upload error:', err);
+        return res.status(500).json({
+            error: 1,
+            message: "Server error during file upload.",
+            status: 500
+        });
+    }
     next();
 };
 

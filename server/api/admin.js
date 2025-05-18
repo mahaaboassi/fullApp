@@ -42,7 +42,7 @@ adminRouter.get("/getAllProperties", GetAllProperty);
 adminRouter.get("/getProperty/:id", GetOneProperty);
 
 // // List Property 
-adminRouter.post("/list", setCategory('list'),uploadMulti,handleFileUploadError,handleLocalUpload, SendList);
+adminRouter.post("/list", setCategory('list'),uploadMulti,handleLocalUpload,handleFileUploadError, SendList);
 // // Contact us
 adminRouter.post("/contactUS", SendMessageToAdmin);
 // // Subscribe

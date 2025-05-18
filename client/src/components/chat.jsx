@@ -49,7 +49,7 @@ function ChatComonent() {
             dispatch(changeNotification(
                 {
                     isOpen : true,
-                    message : response.data.message,
+                    message : message,
                     bgColor : "bg-success"
                 }
             ))

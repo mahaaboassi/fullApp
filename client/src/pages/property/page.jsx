@@ -192,7 +192,7 @@ function Destinations() {
                       </div>
                       <div className='mt-2 '>
                         {/* <Link to={e.rms_link.length>0 && e.rms_link != " " ? e.rms_link: "#"} target={e.rms_link.length>0 && e.rms_link != " "?"_blank": ""}> */}
-                            <button onClick={()=>{showForm(e.rms_link)}} className='!w-full btn-main'  >{t("book-now")}</button>
+                            <button onClick={()=>{showForm(`https://foreshore.ae/property/${e._id}`)}} className='!w-full btn-main'  >{t("book-now")}</button>
                         {/* </Link> */}
                         
                       </div>

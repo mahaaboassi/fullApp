@@ -1,8 +1,9 @@
+require('dotenv').config(); 
 const nodemailer = require("nodemailer");
 const countriesData = require('../data/countries');
-const { AdminEmail } = require("../data/host");
 const User = require("../models/User");
 const Message = require("../models/Message");
+const { isValidDomain } = require('../middleware/checkEmail');
 
 
 const sendEmail = async (data) => {
@@ -11,14 +12,14 @@ const sendEmail = async (data) => {
       const transporter = nodemailer.createTransport({
         service: "gmail", // Or your preferred email service
         auth: {
-          user: "eng.mahaab96@gmail.com", // Replace with your email
-          pass: "ucfl tvrd cgwc ltau", // Replace with your email password or app password
+          user:process.env.EMAIL, // Replace with your email
+          pass: process.env.APP_PASSWORD, // Replace with your email password or app password
         },
       });
   
       // User Email
       const userEmailOptions = {
-        from: "eng.mahaab96@gmail.com", // Replace with your email
+        from: process.env.EMAIL, // Replace with your email
         to: data.email,
         subject: "Confirmation: Message Received",
         // text: `Dear ,\n\nThank you for listing your property with us. We are reviewing your details and will get back to you shortly.\n\nBest regards,\nYour Team`,
@@ -42,7 +43,7 @@ const sendEmail = async (data) => {
         </div>
         <div class="text-align:center">
             <div style="margin: auto;width: 120px;padding-bottom: 10px;">
-                <a href="https://foreshore.vercel.app/" >
+                <a href="https://foreshore.ae/" >
                     <button style="background-color: #27cbbe;cursor: pointer;color: white;border: none  !important;padding: 10px;border-radius: 12px;">Go To Foreshore</button>
                 </a>
             </div>
@@ -54,9 +55,9 @@ const sendEmail = async (data) => {
   
       // Admin Email
       const adminEmailOptions = {
-        from: "eng.mahaab96@gmail.com", // Replace with your email
-        to: AdminEmail, // Replace with admin's email
-        subject: "New Message From forshore Website",
+        from: process.env.EMAIL, // Replace with your email
+        to: process.env.ADMIN_EMAIL, // Replace with admin's email
+        subject: "New Message From foreshore Website",
         html:  `<div style="margin:auto;width: 500px;color:black; border-radius:12px;background-color: white;border: 1px solid black;">
         <div style="background: black;border-top-left-radius:12px;border-top-right-radius:12px;padding:10px;">
             <div style="margin: auto;text-align: center;">
@@ -74,7 +75,9 @@ const sendEmail = async (data) => {
                     <li style="color:black;">Name: <span>${data.name}</span></li>
                     <li style="color:black;">Email: <span>${data.email}</span></li>
                     <li style="color:black;">Phone: <span>${data.phone_number}</span></li>
-                    <li style="color:black;">Country Code: <span>${data.country_dial}</span></li>
+                    <li style="color:black;">Country dial: <span>${data.country_dial}</span></li>
+                    <li style="color:black;">Country Name: <span>${data.country_name}</span></li>
+                    <li style="color:black;">Country Code: <span>${data.country_code}</span></li>
                     <li style="color:black;">Role User: <span>${data.role}</span></li>
                 </ul>
                 <h4 style="color:black;">The Message is </h4>
@@ -87,7 +90,7 @@ const sendEmail = async (data) => {
         </div>
         <div style="text-align:center;">
             <div style="margin: auto;width: 120px;padding-bottom: 10px;">
-                <a href="https://foreshore.vercel.app/" style="text-decoration:none;">
+                <a href="https://foreshore.ae/" style="text-decoration:none;">
                     <button style="background-color: #27cbbe;cursor: pointer;color: white;border: none;padding: 10px;border-radius: 12px;">Go To Foreshore</button>
                 </a>
             </div>
@@ -104,18 +107,23 @@ const sendEmail = async (data) => {
     }
   };
 const SendMessageToAdmin = async (req,res)=>{
-    console.log(req.body);
-    
     const {message, name , email , country_dial, phone_number } = req.body
 
     try {
-        console.log(name,email);
-        
+
        if (!name) {
            return res.status(400).json({
              error: 1,
              data : [],
              message: "Name field is required.",
+             status : 400
+           });
+         }
+        if (name && name.length<=2) {
+           return res.status(400).json({
+             error: 1,
+             data : [],
+             message: "Name must be at least 3 characters long.",
              status : 400
            });
          }
@@ -129,6 +137,15 @@ const SendMessageToAdmin = async (req,res)=>{
                  status: 400
              });
          }
+        const emailExists = await isValidDomain(email);
+        if (!emailExists) {
+            return res.status(400).json({
+                error: 1,
+                data: [],
+                message: "The domain of this email address is not valid or doesn't exist.",
+                status: 400,
+            });
+        }
          // Phone number validation (using simple regex for 10 digits)
          const phoneRegex = /^\d{10,15}$/;  // Accepts 10-15 digits
          if (!phoneRegex.test(phone_number)) {

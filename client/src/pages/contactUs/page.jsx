@@ -22,6 +22,7 @@ import { Helmet } from 'react-helmet-async';
 
 
 
+
 const validationSchema = Yup.object({
     email: Yup.string()
     .email('Please enter a valid email address')
@@ -49,7 +50,7 @@ function ContactUs() {
 
     const dispatch = useDispatch()
     useEffect(()=>{ window.scrollTo({ top: 0,  behavior: 'smooth' })},[])
-    const { register, handleSubmit, formState: { errors },clearErrors,watch,setValue } = useForm(
+    const { register, handleSubmit, watch, reset, formState: { errors }} = useForm(
         {resolver: yupResolver(validationSchema), 
             mode: 'onChange'   }
     );
@@ -76,7 +77,7 @@ function ContactUs() {
            
                        }))
             setLoading(false)
-
+            reset()
         }else{
             console.log(message);
             setLoading(false)
@@ -151,7 +152,7 @@ function ContactUs() {
                         {errors.email && <p className="p-0.5 text-error">{errors.email.message}</p>}
                     </div>
                     <div>
-                        <MobileInput register={register("phone_number")}  returnedCountry={(ele)=>setCountry(ele)} />
+                        <MobileInput value={watch("phone_number")} register={register("phone_number")}  returnedCountry={(ele)=>setCountry(ele)} />
                         {errors.phone_number && <p className="p-0.5 text-error">{errors.phone_number.message}</p>}
                     </div>
                 </div>
@@ -159,7 +160,7 @@ function ContactUs() {
                     <textarea onChange={(e)=>setMessage(e.target.value)}  rows={5}  className='w-full' placeholder={t("message")} />
                 </div>
                 <div className='flex justify-center'>
-                    <button className='btn-grey p-5'>{loading?<div className='loader'></div>:t("submit")}</button>
+                    <button className='btn-grey p-5 cursor-pointer'>{loading?<div className='loader'></div>:t("submit")}</button>
                 </div>
 
             </div>

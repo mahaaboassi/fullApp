@@ -188,7 +188,7 @@ function PropertyDetails() {
               
             </div>
             <div className='second-col'>
-              <FilterInsideProperty link={dataFromApi.rms_link}/>
+              <FilterInsideProperty link={`https://foreshore.ae/property/${dataFromApi._id}`}/>
             </div>
           
             

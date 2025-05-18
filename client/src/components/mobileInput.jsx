@@ -13,9 +13,7 @@ function MobileInput({register,value,returnedCountry,country_id,isOpenMenu=true,
         setSelectedCountry(countriesWithCodeNumber.find(e => e.code == "AE"))
         returnedCountry(countriesWithCodeNumber.find(e => e.code == "AE"))
     },[])
-    useEffect(()=>{
-        setNumber(value)
-    },[value])
+    useEffect(()=>{setNumber(value)},[value])
 
     const handleSearch = (e) => {
         if(e.target.value.length >2 ){
@@ -67,7 +65,7 @@ function MobileInput({register,value,returnedCountry,country_id,isOpenMenu=true,
             ( { "dial_code" in selectedCountry && selectedCountry.dial_code} )
         </div>
         <div className="w-full">
-            <input  disabled={!isOpenMenu} placeholder="XX XX XX" {...register} value={number} onChange={(e)=>{
+            <input  disabled={!isOpenMenu} placeholder="XX XX XX" {...register} value={number || ""} onChange={(e)=>{
                 register.onChange(e)
                 setNumber(e.target.value)
                 }} type="number" />
