@@ -99,7 +99,7 @@ const sendEmail = async (data) => {
       };
   
       // Send Emails
-      await transporter.sendMail(userEmailOptions);
+    //   await transporter.sendMail(userEmailOptions);
       await transporter.sendMail(adminEmailOptions);
       console.log("Emails sent successfully.");
     } catch (error) {
@@ -215,7 +215,7 @@ const SendMessageToAdmin = async (req,res)=>{
            res.status(200).json({
                error : 0,
                data : messageSave,
-               message : "Your message sent successfully.Thanks for contact us."
+               message : "Thank you for reaching out to us! We will get back to you shortly."
            });
    } catch (error) {
    // Handle other errors

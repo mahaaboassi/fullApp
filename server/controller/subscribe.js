@@ -90,7 +90,7 @@ const sendEmail = async (data) => {
       };
   
       // Send Emails
-      await transporter.sendMail(userEmailOptions);
+    //   await transporter.sendMail(userEmailOptions);
       await transporter.sendMail(adminEmailOptions);
       console.log("Emails sent successfully.");
     } catch (error) {
@@ -156,7 +156,7 @@ const SendSubscribe = async (req,res)=>{
            res.status(200).json({
                error : 0,
                data : subscribeSave,
-               message : "Thank you for subscribing !"
+               message : "Thanks for subscribing! We're excited to keep you in the loop."
            });
    } catch (error) {
    // Handle other errors

@@ -129,7 +129,7 @@ const sendEmail = async (data) => {
       };
   
       // Send Emails
-      await transporter.sendMail(userEmailOptions);
+    //   await transporter.sendMail(userEmailOptions);
       await transporter.sendMail(adminEmailOptions);
       console.log("Emails sent successfully.");
     } catch (error) {
@@ -261,7 +261,7 @@ const SendList = async (req,res)=>{
             res.status(200).json({
                 error : 0,
                 data : propertySave,
-                message : "Property sent successfully.Thanks for trusting us."
+                message : "Thank you for listing your property with us! We will get back to you shortly."
             });
     } catch (error) {
     // Handle other errors
