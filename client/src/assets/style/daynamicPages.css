@@ -415,7 +415,7 @@
     background-color: var(--dark_level_2_color);
     color: var(--light_level_1_color);
     border-radius: 8px;
-    text-transform: capitalize;
+    /* text-transform: capitalize; */
   }
   .card-property {
     /* background-color: var(--light_level_1_color);  */

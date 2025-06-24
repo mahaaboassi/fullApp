@@ -235,7 +235,7 @@ function FilterInsideProperty({link}) {
                 
             </div>
           <div className='w-full pb-3'>
-            <button onClick={()=>showForm(link)} style={{borderRadius:"8px"}} className='btn-main capitalize !w-full'>{t("book-now")}</button>
+            <button onClick={()=>showForm(link)} style={{borderRadius:"8px"}} className='btn-main !w-full'>{t("book-now")}</button>
           </div>
           {/* <div className='w-full'>
             <PDFDownloadLink document={<PropertyPDF property={dataFromApi} />} fileName="document.pdf">

@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 // Components
 import Blog from './sections/blogs';
 import Embrace from './sections/embrace';
+import Banner from './sections/banner';
 import SearchCard from './sections/searchCard';
 
 // Images
@@ -25,9 +26,6 @@ import girl_3 from "../../images/banner 03 without background.webp"
 import girl_3_small from "../../images/2a 500x500.webp"
 import girl_3_medium from "../../images/22a 700x500.webp"
 import banner_3 from "../../images/banner 03 back.webp"
-import Hero from './sections/hero';
-import Income from './sections/income';
-import Steps from './sections/steps';
 
 function Home() {
   const { t } = useTranslation();
@@ -60,16 +58,12 @@ function Home() {
       <Helmet>
         <title>Foreshore | Holiday Home Rental</title>
       </Helmet>
-      <Hero fromHomePage={true} data={data} />
+      <Banner fromHomePage={true} data={data} children={<SearchCard/>} />
       <OurBenefits/>
-      <Income/>
+      <ExploreDestination/>
       <Getaway/>
-      <Steps/>
-      {/* <ExploreDestination/> */}
-      
-      
       <Embrace/>
-      {/* <ListYourProperty/> */}
+      <ListYourProperty/>
       <Blog/>
     </div>);
 }
