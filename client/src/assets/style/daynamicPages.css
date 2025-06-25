@@ -567,8 +567,7 @@
 @media (max-width:1024px) {
 
     .about-content .root-img{
-        width: 50%;;
-        height: 200px;
+        height: 300px;
         margin: auto;
     }
     .our-properties  h4{
@@ -693,6 +692,10 @@
   .slider-container-explore {
     height: 140px;
   }
+    .about-content .root-img{
+        height: 250px;
+        margin: auto;
+    }
   
 }
 @media (max-width: 400px) {

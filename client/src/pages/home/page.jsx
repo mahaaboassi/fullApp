@@ -66,8 +66,6 @@ function Home() {
       <Getaway/>
       <Steps/>
       {/* <ExploreDestination/> */}
-      
-      
       <Embrace/>
       {/* <ListYourProperty/> */}
       <Blog/>

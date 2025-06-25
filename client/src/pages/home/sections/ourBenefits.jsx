@@ -34,7 +34,7 @@ function OurBenefits() {
             window.scrollTo({ top: 0,  behavior: 'smooth' })
             return () => window.removeEventListener("scroll", handleScroll);
         }, []);
-    return ( <div className='benefit mt-10'>
+    return ( <div className='benefit md:mt-10'>
         <Header title={t("benefit-title")} description={t("benefit-desc")} />
         <div className='lg:px-10 mt-5'>
             {data.map((e)=>{

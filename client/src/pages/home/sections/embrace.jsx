@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 function Embrace() {
     const { t , i18n } = useTranslation()
     const navigate = useNavigate()
-    return ( <div className=" embrace bg-white mt-10 flex flex-col-reverse items-center justify-center md:flex-row px-3 lg:px-12">
+    return ( <div className=" embrace bg-white md:mt-10 flex flex-col-reverse items-center justify-center md:flex-row px-3 lg:px-12">
         <div className='w-full md:w-1/2 flex items-center justify-center'>
             {/* <img src={img} alt='List Your Property'/> */}
             <svg xmlns="http://www.w3.org/2000/svg" width="620" height="610" viewBox="0 0 620 610" fill="none">

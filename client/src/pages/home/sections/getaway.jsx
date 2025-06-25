@@ -38,7 +38,7 @@ function Getaway() {
         if (targetRef.current) observer.unobserve(targetRef.current);
       };
       }, []);
-    return ( <div ref={targetRef} className="flex justify-center getaway my-20 px-6 lg:px-10  ">
+    return ( <div ref={targetRef} className="flex justify-center getaway my-10 md:my-20 px-6 lg:px-10  ">
         <div className="relative">
             <img className='w-full' src={img} alt="banner"/>
             <div className='bg'> </div>
