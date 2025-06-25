@@ -12,7 +12,10 @@
     overflow: hidden;
     border-radius: 12px;
 }
-
+.about-content h3{
+  font-weight: 600;
+  font-size: var(--font-size-s);
+}
 .right-side {
     right: 0;
 }

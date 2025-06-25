@@ -7,13 +7,12 @@ import image from "../../images/about_us.webp"
 import small_size from "../../images/info 700x330.webp"
 // import small_size from "../../images/about us 500 x330.webp"
 import medium_size from "../../images/info 700x330.webp"
-import about_1 from "../../images/about-3.webp"
-import about_2 from "../../images/about-2.webp"
+import about_1 from "../../images/about (1).webp"
+import about_2 from "../../images/about (2).webp"
 import { dataFAQ } from '../../data/dataFAQ';
 import Accordion from '../../components/accordion';
 import { Helmet } from 'react-helmet-async';
 import { useNavigate } from 'react-router-dom';
-import Header from '../../components/header';
 
 
 function AboutUs() {
@@ -25,7 +24,6 @@ function AboutUs() {
       title : t("about-text-1"),
       hint :  t("about-hint-1")
     }]
-    
     const [offsetY, setOffsetY] = useState(0);
     const navigate = useNavigate()
     const handleScroll = () => {
@@ -44,18 +42,17 @@ function AboutUs() {
         <Banner data={data}  />
 
         <div className='px-6 md:px-20  lg:px-36 about-content '>
-            <Header title={t("about-sub-title")} description={t("about-desc")}/>
-            {/* <h2 className='flex justify-center weight-semiBold py-10'>{}</h2> */}
-            <div className='grid grid-cols-1  lg:grid-cols-2 pt-10 gap-4'>
+            <h2 className='flex justify-center weight-semiBold py-10'>{t("about-sub-title")}</h2>
+            <div className='grid grid-cols-1  lg:grid-cols-2 gap-4'>
                 <div  className=' relative root-img '>
                     <img style={{transform: `scale(${1 + offsetY * 0.0002})` }} src={about_1} alt='about-us' />
                 </div>
                 <div className=''>
-                    <h3>{t("about-section-1-title-1")}</h3>
-                    <p className='py-3'>{t("about-section-1-para-1")}</p>
-                    <p> {t("about-section-1-para-2")} </p>
+                    <p>{t("about-desc-1")}</p>
+                    <p className='py-3'>{t("about-desc-2")}</p>
+                    <p>{t("about-desc-3")}</p>
                     <div className='pt-3 flex justify-center lg:justify-start'>
-                        <button  onClick={()=>navigate("/listYourProperty")} className='btn-main px-4'>{t("partner-with-us-btn")}</button>
+                        <button  onClick={()=>navigate("/destinations")} className='btn-main px-4'>{t("benefit-btn")}</button>
                     </div>
                 </div>
                 
@@ -63,9 +60,9 @@ function AboutUs() {
             </div>
             <div className='flex flex-col-reverse grid-cols-1 lg:grid   lg:grid-cols-2 gap-4 py-10 md:py-12 lg:py-20'>
                 <div className=''>
-                    <h3>{t("about-section-2-title-1")}</h3>
-                    <p className='py-3'>{t("about-section-2-para-1")}</p>
-                    <p> {t("about-section-2-para-2")} </p>
+                    <p >{t("about-desc-4")}</p>
+                    <p className='py-3'>{t("about-desc-5")}</p>
+                    <p>{t("about-desc-6")}</p>
                     <div className='pt-3 flex justify-center lg:justify-start'>
                         <button onClick={()=>navigate("/destinations")}  className='btn-main px-4'>{t("benefit-btn")}</button>
                     </div>

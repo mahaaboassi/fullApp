@@ -14,7 +14,7 @@
     "hero-hint-3" : "Your Next Stay Awaits",
     "hero-text-3" : "Looking for a quick escape? Discover vacation homes curated for comfort and convenience. Book with ease, stay with joy.",
     
-    "hero-title-home-page" : "EXPERT HOLIDAY HOMES MANAGEMENT DUBAI",
+    "hero-title-home-page" : "EXPERT HOLIDAY HOMES MANAGEMENT UAE",
     "hero-hint-home-page":"Foreshore is a Trusted Partner for Property Owners",
 
     "benefit-title" : "DISCOVER THE BENEFITS OF WORKING WITH US",
@@ -126,8 +126,8 @@
 
     "about-hint-1" : "Partner with Foreshore",
     "about-text-1" : "Let us handle the details while you reap the rewards. ",
-    "about-sub-title" : "What We Do",
-    "about-desc" : "Lorem Ipsum: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore",
+    "about-sub-title" : "WHAT WE DO",
+    "about-desc" : "Discover how Foreshore helps you earn more and enjoy better stays with expert property management and trusted holiday rentals",
     "about-desc-1" : "At Foreshore Holiday Homes, we're not just in the business of providing holiday homes; we're in the business of creating memories. Our story begins with a passion for hospitality and a deep appreciation for the art of travel. We believe that every journey should be filled with comfort, convenience, and a touch of luxury.",
     "about-desc-2" : "Whether you're seeking a tranquil escape, a family adventure, or a romantic retreat, Foreshore Holiday Homes is your gateway to unforgettable getaways in the vibrant city of Dubai.",
     "about-desc-3" : "Our commitment to exceptional service and attention to detail ensures that your stay with us is nothing short of extraordinary. Come, explore our world of holiday homes, and let us be a part of your travel story. Welcome to Foreshore Holiday Homes, where every stay is a new adventure waiting to be written.",
@@ -137,6 +137,8 @@
 
 
     "wonder-title" : "You're Probably Wondering",
+    "wonder-ques-7" : "What kind of properties can I list with Foreshore?",
+    "wonder-ans-7" : "We accept a wide range of properties including apartments, villas, and penthouses located in popular UAE areas that comply with DTCM regulations. Properties must be furnished, clean, and ready for short-term rental.",
     "wonder-ques-1" : "Is there a limit on water and electricity consumption?",
     "wonder-ans-1" : "Your rental includes standard water and electricity consumption. However, if your usage exceeds the monthly DEWA (Dubai Electricity and Water Authority) limits, excess consumption charges may apply.",
     "wonder-ques-2" : "What types of holiday homes does Foreshore offer?",
@@ -381,8 +383,34 @@
     "book-your-property" : "Book Your Property",
     "which-type" : "which Type ?",
     "which-location" : "which Location ?",
-    "filter-box" : "Filter box"
+    "filter-box" : "Filter box",
 
 
-    
+    "step-title" : "FROM LISTING TO EARNING IN JUST 14 DAYS",
+    "step-des" : "Start generating income fast — we handle everything from setup to management within just 14 days",
+    "step-title-1" : "Get in Touch",
+    "step-des-1" : "Share your property details with us, and our Sales Team will connect with you swiftly.",
+    "step-title-2" : "Property Projection",
+    "step-des-2" : "We craft a detailed business plan using insights from over 32,500 bookings.",
+    "step-title-3" : "Sign Contract",
+    "step-des-3" : "Secure your partnership with a comprehensive property management contract.",
+    "step-title-4" : "DTCM Registration",
+    "step-des-4" : "We handle all registrations with Dubai Tourism and obtain your permit.",
+    "step-title-5" : "Premium Set-Up",
+    "step-des-5" : "Our team furnishes and maintains your property to world-class standards.",
+    "step-title-6" : "Photography & Listing",
+    "step-des-6" : "We capture stunning photos and list your property on top platforms like Airbnb and Booking.com.",
+    "step-title-7" : "Timely Pay-out",
+    "step-des-7" : "Get your earnings deposited into your account by the 15th of each month.",
+    "step-title-8" : "Financial Report",
+    "step-des-8" : "Receive a detailed financial statement on the 10th of every month.",
+    "step-title-9" : "Start Earning",
+    "step-des-9" : "Begin generating revenue quickly through our extensive network.",
+
+    "about-section-1-title-1": "Creating Seamless Stays & Smart Investments in UAE",
+    "about-section-1-para-1": "At Foreshore Holiday Homes, we believe that every home has a story — and we’re here to help you tell it. Whether you're a property owner looking to transform your space into a revenue-generating asset, or a traveler seeking comfort, style, and convenience in UAE, we’re the bridge between hospitality and smart property management.",
+    "about-section-1-para-2": "With a deep understanding of the UAE market and a commitment to excellence, we offer fully managed property solutions for homeowners and unforgettable stays for guests. From seamless check-ins to 5-star experiences, our mission is to deliver trust, transparency, and top-tier service — every step of the way.",
+    "about-section-2-title-1": "Stay Exceptional. Stay Foreshore.",
+    "about-section-2-para-1": "At Foreshore Holiday Homes, we understand that where you stay shapes your entire travel experience — and we’re here to make it exceptional. Whether you're visiting UAE for business, leisure, or a long-term stay, we offer handpicked holiday homes that combine comfort, style, and convenience to make you feel at home.",
+    "about-section-2-para-2": "With beautifully furnished properties in prime locations, flexible check-in options, and round-the-clock guest support, our team is dedicated to making your stay smooth, stress-free, and memorable. From cozy city apartments to luxurious waterfront villas, Foreshore delivers more than just a place to stay — we deliver a place to belong."
   }

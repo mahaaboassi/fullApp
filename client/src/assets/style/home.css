@@ -72,7 +72,6 @@
 .content-hero{
     position: absolute;
     top: 50%;
-
     transform: translateY(-50%);
 }
 .content-hero-home{
@@ -97,6 +96,20 @@
 }
 .content-hero h2, .content-hero-home h2,h1 {
     animation: append 1s forwards;
+}
+.home-hero h1 {
+    animation: homeTitle 0.5s linear forwards;
+    transform: scale(0.2);
+    opacity: 0;
+}
+@keyframes homeTitle {
+    from {
+        transform: scale(0.2);
+        opacity: 0;
+    }to{
+        transform: scale(1);
+        opacity: 1;
+    }
 }
 .content-hero h2, .content-hero-home h2{
     animation: append 1s forwards;
@@ -399,6 +412,9 @@ path.change-to-black-color {
     
 }
 /* Steps */
+#steps .swiper-button-prev:after, .swiper-button-next:after{
+    display: none;
+}
 .container-steps{
     border-top: 4px solid var(--main_color);
     border-bottom: 4px solid var(--main_color);
@@ -435,11 +451,31 @@ path.change-to-black-color {
     z-index: 1;
     left: 0;
     /* color: var(--main_color); */
+    transition: 0.3s;
+}
+.container-shape:hover .first-shape{
+    background: url("../../images/new shape.png");
+        background-repeat: no-repeat;
+    background-size: contain;
+    color: var(--light_level_1_color);
 }
 .second-shape{
     background: url("../../images/spot-2.png");
     background-repeat: no-repeat;
 
+}
+.last-arrow, .next-arrow{
+    background: var(--main_color);
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.last-arrow{
+    transform: rotate(-180deg);
 }
 @media (max-width:1200px) {
     .hero h1{

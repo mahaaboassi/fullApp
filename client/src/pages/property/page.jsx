@@ -7,10 +7,14 @@ import { Helper } from '../../functionality/helper';
 import { apiRoutes, HostImages } from '../../functionality/apiRoutes';
 import SearchCard from '../home/sections/searchCard';
 // Images For Banners
-import image from "../../images/1300x500.webp"
-import small_size from "../../images/500x500-explore.webp"
-import medium_size from "../../images/explore 700x500.webp"
-import banner_3 from "../../images/banner 03 back.webp"
+// import image from "../../images/1300x500.webp"
+// import small_size from "../../images/500x500-explore.webp"
+// import medium_size from "../../images/explore 700x500.webp"
+// import banner_3 from "../../images/banner 03 back.webp"
+import image from "../../images/image without background.webp"
+import small_size from "../../images/500x500 h.webp"
+import medium_size from "../../images/A 700x330.webp"
+import banner_3 from "../../images/banner background.webp"
 import { Helmet } from 'react-helmet-async';
 import { useDispatch } from 'react-redux';
 import { changePopup } from '../../redux/actions/popup';

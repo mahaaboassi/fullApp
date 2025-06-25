@@ -29,7 +29,7 @@ function Banner({children,data, fromHomePage = false}) {
               modules={[EffectFade,Autoplay]}
               className="mySwiper"
             >
-              {data.map((ele, index)=>(<SwiperSlide key={`Banner_${ele.title}`}>
+              {data.map((ele, index)=>(<SwiperSlide key={`Banner_${ele.title}_${index}`}>
                 <div className='img-hero'>
                   <img className='w-full' src={ele.background_img} alt="banner" />
                   {fromHomePage && <img className='w-full girl' src={ele.img} alt="girl" />}
