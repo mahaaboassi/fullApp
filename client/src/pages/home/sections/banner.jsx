@@ -37,7 +37,7 @@ function Banner({children,data, fromHomePage = false}) {
                 </div>
 
                 <div className={`content-hero left-5 lg:left-10 px-2 sm:px-5 md:px-7 ${i18n.language == "ar" ? "arabic-dir":"w-full en-dir"} `}>
-                  <h1  className={`text-main capitalize weight-bold `}>{ele.hint}</h1>
+                  <h1  className={`text-main capitalize weight-bold uppercase `}>{ele.hint}</h1>
                   <h2 className={`text-dark capitalize weight-medium `}>{ele.title}</h2>
                 </div>
                   {/* ----------------------------------- Banner search --------------------------------*/}

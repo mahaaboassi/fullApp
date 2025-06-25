@@ -21,7 +21,7 @@ function OurBenefits() {
         hint : t("benefit-hint-2"),
         desc : t("benefit-desc-2"),
         btn : t("partner-with-us-btn"),
-        link : "",
+        link : "/listYourProperty",
         img : img_2
     }]
     const [offsetY, setOffsetY] = useState(0);
