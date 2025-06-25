@@ -6,7 +6,7 @@ const connectDB = require('./config/db');
 const {router} = require("./api/auth");
 const { adminRouter } = require('./api/admin');
 const app = express();
-const PORT = 5000;
+const PORT = 5200;
 
 app.use(bodyParser.json());
 // Connect MongoDB
