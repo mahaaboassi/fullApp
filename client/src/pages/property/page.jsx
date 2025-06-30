@@ -78,6 +78,7 @@ function Destinations() {
         }
     }
     const showForm = (link) =>{
+
         dispatch(changePopup({
             isOpen : true,
             isForm : true,
@@ -195,9 +196,10 @@ function Destinations() {
                             </div>
                       </div>
                       <div className='mt-2 '>
-                        {/* <Link to={e.rms_link.length>0 && e.rms_link != " " ? e.rms_link: "#"} target={e.rms_link.length>0 && e.rms_link != " "?"_blank": ""}> */}
-                            <button onClick={()=>{showForm(`https://foreshore.ae/property/${e._id}`)}} className='!w-full btn-main'  >{t("book-now")}</button>
-                        {/* </Link> */}
+                        <Link to={"https://bookings.rmscloud.com/Search/Index/AFD2425438087774/59/"} target={"_blank"}>
+                            <button  className='!w-full btn-main'  >{t("book-now")}</button>
+                        </Link>
+                        {/* <button onClick={()=>{showForm(`https://foreshore.ae/property/${e._id}`)}} className='!w-full btn-main'  >{t("book-now")}</button> */}
                         
                       </div>
                     </div>

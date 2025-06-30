@@ -11,17 +11,21 @@ import Notification from './components/notification';
 import ChatComonent from './components/chat';
 import { HelmetProvider } from 'react-helmet-async';
 import PopupComponent from './components/popup';
+import { BrowserRouter } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <HelmetProvider>
-      <Provider store={store}>
-        <App />
-        <Notification/>
-        <ChatComonent/>
-        <PopupComponent/>
-      </Provider>
+      <BrowserRouter>
+          <Provider store={store}>
+            <App />
+            <Notification/>
+            <ChatComonent/>
+            <PopupComponent/>
+          </Provider>
+      </BrowserRouter>
+
     </HelmetProvider>
     
   </React.StrictMode>

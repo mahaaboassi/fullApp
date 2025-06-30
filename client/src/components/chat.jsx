@@ -7,6 +7,8 @@ import { Helper } from "../functionality/helper";
 import { apiRoutes } from "../functionality/apiRoutes";
 import { changePopup } from "../redux/actions/popup";
 import { changeNotification } from '../redux/actions/notification';
+import { Link } from 'react-router-dom';
+
 
 
 const closeIcon = <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -96,7 +98,8 @@ function ChatComonent() {
 
 
             </div>
-            <div onClick={()=>selectOption("book")} className="option my-1"> {t("book-your-property")}</div>
+            <Link to={"https://bookings.rmscloud.com/Search/Index/AFD2425438087774/59/"} target={"_blank"}><div className="option my-1"> {t("book-your-property")}</div></Link>
+            {/* <div onClick={()=>selectOption("book")} className="option my-1"> {t("book-your-property")}</div> */}
             <div onClick={()=>selectOption("list")} className="option"> {t("list-your-property")}</div>
                 
             </div>}

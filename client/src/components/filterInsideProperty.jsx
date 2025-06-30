@@ -2,7 +2,7 @@ import React ,{useEffect, useRef, useState}  from 'react';
 import { useTranslation } from 'react-i18next';
 import { Helper } from '../functionality/helper';
 import { apiRoutes } from '../functionality/apiRoutes';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { changePopup } from '../redux/actions/popup';
 import MessageInfo from './messageInfo';
@@ -235,7 +235,10 @@ function FilterInsideProperty({link}) {
                 
             </div>
           <div className='w-full pb-3'>
-            <button onClick={()=>showForm(link)} style={{borderRadius:"8px"}} className='btn-main !w-full'>{t("book-now")}</button>
+            <Link to={"https://bookings.rmscloud.com/Search/Index/AFD2425438087774/59/"} target='_blank'>
+                <button style={{borderRadius:"8px"}} className='btn-main !w-full'>{t("book-now")}</button>
+            </Link>
+            {/* <button onClick={()=>showForm(link)} style={{borderRadius:"8px"}} className='btn-main !w-full'>{t("book-now")}</button> */}
           </div>
           {/* <div className='w-full'>
             <PDFDownloadLink document={<PropertyPDF property={dataFromApi} />} fileName="document.pdf">

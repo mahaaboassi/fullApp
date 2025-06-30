@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import {  Route, Routes } from "react-router-dom";
 import { Suspense, lazy } from "react";
 import Spinner from "./layouts/spinner";
 
@@ -21,7 +21,6 @@ const UserProperties = lazy(() => import("./pages/userProperties/page"));
 
 function App() {
   return (
-    <BrowserRouter>
       <Suspense fallback={<Spinner/>}>
         <Routes>
           <Route element={<LayoutPages />} path="/*">
@@ -44,7 +43,6 @@ function App() {
           </Route>
         </Routes>
       </Suspense>
-    </BrowserRouter>
    
   );
 }
