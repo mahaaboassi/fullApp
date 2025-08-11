@@ -6,7 +6,7 @@ const connectDB = require('./config/db');
 const {router} = require("./api/auth");
 const { adminRouter } = require('./api/admin');
 const app = express();
-const PORT = 5200;
+const PORT = 6000;
 
 app.use(bodyParser.json());
 // Connect MongoDB
@@ -25,11 +25,24 @@ app.use(cors({
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
 }));
-// Serve static files from 'public' folder
-app.use(express.static(path.join(__dirname, 'public')));
-
-// Example: Serve 'uploads' route if needed (optional extra)
-app.use('/uploads', express.static(path.join(__dirname, 'public/uploads')));
+// For uploads folder
+app.use('/uploads', express.static(path.join(__dirname, 'uploads'), {
+  setHeaders: (res, filePath) => {
+    const ext = path.extname(filePath).toLowerCase();
+    const contentTypes = {
+      '.avif': 'image/avif',
+      '.webp': 'image/webp',
+      '.jpg': 'image/jpeg',
+      '.jpeg': 'image/jpeg',
+      '.png': 'image/png',
+      '.gif': 'image/gif',
+      '.svg': 'image/svg+xml',
+    };
+    if (contentTypes[ext]) {
+      res.setHeader('Content-Type', contentTypes[ext]);
+    }
+  }
+}));
 
 app.use(bodyParser.urlencoded({
     extended: true

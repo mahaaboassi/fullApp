@@ -1,6 +1,6 @@
 const Host = import.meta.env.VITE_HOST
 
-export const HostImages = "/"
+export const HostImages = "https://api.foreshore.ae/"
 export  const apiRoutes = {
     sendEmail : `${Host}/admin/list`,
     auth : {
