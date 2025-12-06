@@ -64,8 +64,3 @@ const userSchema = new mongoose.Schema({
 
 
 module.exports = mongoose.model("User",userSchema)
-
-// async function verifyPassword(inputPassword, storedPassword) {
-//     const isMatch = await bcrypt.compare(inputPassword, storedPassword);
-//     return isMatch;  // Returns true if passwords match, false otherwise
-// }

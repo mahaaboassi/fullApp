@@ -1,7 +1,6 @@
 import React ,{useEffect, useState}  from 'react';
 import { useTranslation } from 'react-i18next';
 import Banner from '../home/sections/banner';
-
 import { Link, useSearchParams} from 'react-router-dom';
 import { Helper } from '../../functionality/helper';
 import { apiRoutes, HostImages } from '../../functionality/apiRoutes';

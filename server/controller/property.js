@@ -519,7 +519,6 @@ const GetAllProperty = async (req, res) => {
 
         // Get total number of items for metadata
         const totalItems = await property.countDocuments(query);
-
         // Calculate total pages
         const allPages = Math.ceil(totalItems / limitNumber);
         const lastPage = allPages > 0 ? allPages : 1;

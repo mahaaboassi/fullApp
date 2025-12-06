@@ -6,25 +6,20 @@ const connectDB = require('./config/db');
 const {router} = require("./api/auth");
 const { adminRouter } = require('./api/admin');
 const app = express();
-const PORT = 6000;
+const PORT = 7000;
 
 app.use(bodyParser.json());
 // Connect MongoDB
 connectDB()
 
 // Middleware
-const origins = ['https://foreshore.ae','https://www.foreshore.ae', 'http://localhost:3000' ]
 app.use(cors({
-// origin: (origin, callback) => {
-//    if (!origin || origins.includes(origin) || /postman/.test(origin)) {
-//      return callback(null, true);  // Allow Postman or no origin
-//    }
-//    callback(new Error('Not allowed by CORS'), false);
-//  },
-  origin :"*",
+  origin : ['http://localhost:5173',"http://127.0.0.1:5173"],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true
 }));
+
 // For uploads folder
 app.use('/uploads', express.static(path.join(__dirname, 'uploads'), {
   setHeaders: (res, filePath) => {
